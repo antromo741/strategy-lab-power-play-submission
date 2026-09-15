@@ -1,0 +1,469 @@
+{
+  "status": "complete",
+  "status_reason": "",
+  "title": "Keep the Final Say Over Your AI",
+  "coverage": [
+    {
+      "part": 1,
+      "summary": "Housekeeping and warm-up: a poll on how many automations members run (B0008), class notes, calendar links, pods, event ticket promotion, a product memory-export deadline (B0022–B0027), member wins and spotlights (B0029–B0039), portal and Slack logistics, then a spotlight on a new model release and a 'right model, right job' discussion with if-this-then-that examples (B0053–B0068). Teaching content: only the model-choice heuristic; the rest is housekeeping and promotion."
+    },
+    {
+      "part": 2,
+      "summary": "Wrap-up of model choice (it is the human's decision, B0072). Then the main segment begins: history of Grok/X/Cursor (B0089–B0094), the hosts' two-week test of Grokbot, a definition of an AI agent (context, connections, capabilities, scheduling, memory, B0108–B0110) and AI-employee levels (B0115), and a tour of one host's Grokbot team that was partly lost to a broken screen share (B0127–B0164). Mostly description and demo attempts; no reproducible quick win here."
+    },
+    {
+      "part": 3,
+      "summary": "Grokbot capabilities: each bot has its own virtual computer, can log into tools without APIs (B0165–B0190). A sexy/safe/scalable evaluation of the tool (B0205–B0214) with a story of a bot messaging a whole team on Slack (B0207). A beginner's setup prompt for Grokbot (B0221–B0226). Leadership guidance that teams need rules on what they can share with AI tools, a company example (accounting books off-limits, B0240), and an operations-side framework: give access only where you'd accept it making changes on its own, never where you'd have to undo a mistake (B0246–B0253)."
+    },
+    {
+      "part": 4,
+      "summary": "Team disagreement over Grokbot summarized (B0254–B0272), homework and class housekeeping (B0275–B0276). Hand-raise Q&A: a member's self-built orchestrator in a markdown file (B0279–B0298), terminal anxiety (B0303–B0306), a question about Codex (B0315–B0321), 'how many agents is too many' with the 'would you ever talk to it by itself?' test and a skill-bloat discussion (B0333–B0357). Two removed hot seats (B0358, B0362). A coach whose proposal was rejected as AI-written (B0369–B0377)."
+    },
+    {
+      "part": 5,
+      "summary": "Continuation of the AI-written proposal question: encouragement, a prompt to have the AI point out where a document reads as AI-written (B0378–B0391), a watermark aside (B0396–B0399). Then technical member questions: captchas blocking automated logins (B0410–B0449), user logins for a client dashboard (B0452–B0458), a member whose Drive and Gmail organizing attempts failed, answered with 'make a plan first, edit it, then execute' (B0460–B0470), a live-feed recording setup (B0472–B0476), and sign-off."
+    }
+  ],
+  "normalizations": [
+    {
+      "variants": [
+        "Grokbot",
+        "Grockbot",
+        "Rockbot",
+        "Crockbot",
+        "Grotbot",
+        "Brockbot",
+        "Grok Bot",
+        "graph bot",
+        "rockbot"
+      ],
+      "used_as": "Grokbot",
+      "blocks": [
+        "B0086",
+        "B0106",
+        "B0107",
+        "B0157",
+        "B0297",
+        "B0469"
+      ]
+    },
+    {
+      "variants": [
+        "Claude",
+        "Clawd",
+        "Clog",
+        "claw",
+        "cloud"
+      ],
+      "used_as": "Claude",
+      "blocks": [
+        "B0096",
+        "B0165",
+        "B0463",
+        "B0464"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C1",
+      "title": "Written rules for what your team may share with AI tools",
+      "owner_problem": "Team members are trying new AI tools; the owner has no stated rules for what they may paste into them or connect them to, and a tool with broad access acted on its own (messaged a whole team on Slack).",
+      "inputs": "A list of the tools and accounts the business uses, the AI tools the team uses or is considering, and her own answers about which accounts she could tolerate an AI changing on its own.",
+      "outcome": "A one-page draft rule sheet, sorted into fine-to-share, connect-with-a-person-checking, keep-out, and decide-later, with a one-line reason per item, for her to edit.",
+      "evidence": "explained",
+      "blocks": [
+        "B0207",
+        "B0232",
+        "B0240",
+        "B0246",
+        "B0247",
+        "B0251",
+        "B0253"
+      ],
+      "prerequisites": "She knows which tools and accounts her team uses.",
+      "caveats": "The sorting test (give access only where you would accept the tool making changes on its own; never where you would have to undo a mistake) is one team member's framework, offered as a proposal she can change. The accounting-books example is one company's policy, shown as an example only. Turning the framework into a prompt is our application; it was described, not demonstrated.",
+      "decision": "selected",
+      "reason": "Directly raised owner problem, inputs she has, one prompt gives a concrete editable policy; the safety concern the speakers raised is the point of the play rather than something it works around."
+    },
+    {
+      "id": "C2",
+      "title": "A plan you approve before AI reorganizes your files or inbox",
+      "owner_problem": "A member spent months trying to have AI organize Drive, Gmail, and contacts; it scrambled things and then stalled. The advice was to have it produce a plan first, edit it, then execute.",
+      "inputs": "A pasted list of her current top-level folder names (or email labels) and a few sentences on how she and her team look for things.",
+      "outcome": "A written reorganization plan: a proposed structure, a table placing every existing folder once, open questions, and a small first batch to check, with nothing moved.",
+      "evidence": "explained",
+      "blocks": [
+        "B0463",
+        "B0464",
+        "B0469"
+      ],
+      "prerequisites": "She can copy her folder or label names from her own account.",
+      "caveats": "The advice was given in answer to one member and was not demonstrated; the prompt is our application. The play works from a pasted list rather than a connected account so nothing can be moved by accident; a remark that the tool 'is lying' about its permissions is a speaker's view and is left out.",
+      "decision": "selected",
+      "reason": "Common owner pain, trivial inputs, one prompt yields a reviewable plan, and the plan-first method is clearly stated in the transcript."
+    },
+    {
+      "id": "C3",
+      "title": "Find and rewrite the passages that make your proposal read as machine-written",
+      "owner_problem": "A coach with a client ready to sign sent an AI-drafted proposal and the client balked because it 'seemed AI written'; she wanted a way to spot that before sending.",
+      "inputs": "The proposal text; optionally a sample of her own writing and the client's feedback.",
+      "outcome": "A list of the passages that read as machine-written, why each does, and a rewrite of each in her voice with every fact, price, date, and commitment unchanged, plus questions where a personal detail would help.",
+      "evidence": "explained",
+      "blocks": [
+        "B0369",
+        "B0371",
+        "B0377",
+        "B0385",
+        "B0388"
+      ],
+      "prerequisites": "She has the proposal as text she can paste.",
+      "caveats": "The suggested prompt (read as someone who spots AI writing patterns and point to where it shows) was offered by a host and accepted by the member; no result was shown. A host also suggested a 0–100 'anti-AI' score and an internal writing guide; both are left out (a score is the AI's opinion, the guide is not available to the reader). The hosts said even a cleaned-up document can still be called AI-made, so the play promises flagged passages and rewrites, not a guarantee about how a reader will react. Watermark remarks (B0396) are unverified and excluded.",
+      "decision": "selected",
+      "reason": "A real owner problem with a pasteable input and a concrete one-prompt output that differs in kind from the other two picks."
+    },
+    {
+      "id": "C4",
+      "title": "Consolidate overlapping automations, prompts, and skills",
+      "owner_problem": "Skill and agent bloat: many overlapping automations that nobody maintains; the test offered was 'would you ever need to run this by itself? If not, fold it into another.'",
+      "inputs": "A list of her saved prompts, projects, or automations with a line on what each does.",
+      "outcome": "A grouping proposal showing which items overlap and which could be folded together, with removal left to her.",
+      "evidence": "explained",
+      "blocks": [
+        "B0336",
+        "B0337",
+        "B0338",
+        "B0339",
+        "B0342",
+        "B0348",
+        "B0349"
+      ],
+      "prerequisites": "She has enough saved automations or prompts for overlap to be a problem.",
+      "caveats": "The 260-skill count and the 100–175 estimate are one company's numbers. A speaker planned to cut skills that were never used, which conflicts with the rule that low use alone is not a reason to remove; any play would have to put removal behind her decision.",
+      "decision": "rejected",
+      "reason": "Weaker input ease for a non-technical owner with a small team; the problem as described belongs to a company running hundreds of skills. Kept as the next qualifying candidate."
+    },
+    {
+      "id": "C5",
+      "title": "Pick the right AI model for the job",
+      "owner_problem": "Members asked whether the tool picks the model for them; the answer was that it is the human's choice, with a heuristic: when you know what done looks like use the lighter option, when you don't use the stronger one.",
+      "inputs": "A list of her recurring tasks.",
+      "outcome": "A routing note for her tasks.",
+      "evidence": "explained",
+      "blocks": [
+        "B0053",
+        "B0054",
+        "B0055",
+        "B0062",
+        "B0064",
+        "B0066",
+        "B0072"
+      ],
+      "prerequisites": "None.",
+      "caveats": "Rests on model names, prices, and benchmark figures that go stale; the heuristic is one host's practice.",
+      "decision": "rejected",
+      "reason": "A heuristic rather than a one-prompt deliverable, and it cannot be written without transient model and pricing details."
+    },
+    {
+      "id": "C6",
+      "title": "Set up a Grokbot chief of staff",
+      "owner_problem": "Members wanted to know what the hyped tool does and how to try it safely.",
+      "inputs": "A paid account on a third-party tool, business documents, a throwaway email account.",
+      "outcome": "A configured assistant bot.",
+      "evidence": "explained",
+      "blocks": [
+        "B0221",
+        "B0222",
+        "B0224",
+        "B0226"
+      ],
+      "prerequisites": "Buying and installing a new product.",
+      "caveats": "The hosts themselves rated the tool not safe and not scalable (B0207–B0209), it acts without permission checks (B0212–B0213), and the operations lead warned against giving it anything you'd have to undo (B0247).",
+      "decision": "rejected",
+      "reason": "Needs a new paid account and the kind of broad access the speakers warned against; not something she can do today with what she has."
+    },
+    {
+      "id": "C7",
+      "title": "Evaluate any hyped AI tool with sexy, safe, scalable",
+      "owner_problem": "Owners feel behind when a new tool is hyped and need a considered answer for themselves, their team, or a board.",
+      "inputs": "A description of the tool and her business.",
+      "outcome": "A short evaluation.",
+      "evidence": "explained",
+      "blocks": [
+        "B0205",
+        "B0210",
+        "B0230",
+        "B0272"
+      ],
+      "prerequisites": "None.",
+      "caveats": "Same framework as C1's source discussion; making it a separate play would split one idea into two.",
+      "decision": "rejected",
+      "reason": "Rests on the same framework and blocks as C1; selecting both would split one idea."
+    },
+    {
+      "id": "C8",
+      "title": "Export legacy memory before the deadline",
+      "owner_problem": "A product change with a deadline.",
+      "inputs": "A product setting.",
+      "outcome": "A downloaded file.",
+      "evidence": "explained",
+      "blocks": [
+        "B0022",
+        "B0026",
+        "B0027"
+      ],
+      "prerequisites": "A specific product version.",
+      "caveats": "Dated product housekeeping.",
+      "decision": "rejected",
+      "reason": "Transient product housekeeping, not a business quick win."
+    }
+  ],
+  "plays": [
+    {
+      "candidate": "C1",
+      "name": "Rules for what AI can touch",
+      "promise": "A one-page draft of rules for what your team may share with, and connect to, AI tools, ready for you to edit.",
+      "tldr": "Paste the tools and accounts your team uses and the AI tools they use, then answer a short list of questions. You get a rule sheet sorting each item into fine to share, connect with a person checking, keep out, or decide later, with a reason each.",
+      "why_it_matters": "Once anyone on your team is trying AI tools, the question of what they may paste in or connect is already live. One owner's assistant, unable to reach a calendar invitation, instead messaged everyone on it through Slack; nobody had chosen that. A simple test came out of that: give a tool access only where you would accept it making changes on its own, never where you would have to undo a mistake. Written down, your team can follow it.",
+      "before_you_start": [
+        "A list of the tools and accounts your business runs on (email, calendar, chat, accounting, customer records, file storage, and so on).",
+        "The AI tools your team uses or is considering.",
+        "Optional: any rules you already have, even informal ones."
+      ],
+      "prompt": "My small team uses AI tools and I want a short written rule sheet on what they may share with, and connect to, those tools. Pasted below are the tools and accounts we use, the AI tools we use or are considering, and any rules we already have. If they are not pasted, ask me for them first.\n\nFirst, ask me in one short list only what you need: for each account or type of information, whether I would be fine with an AI tool making changes there on its own or would have to undo a mistake; which information is confidential to clients or covered by contract or law; and anything I have already decided. Wait for my answers.\n\nThen draft a one-page rule sheet with four groups: 'Fine to share', 'Connect only with a person checking each action', 'Keep out of AI tools', and 'Decide later'. Put every item I listed in exactly one group with a one-line reason, using my answers exactly as given. Apply this sorting rule and tell me it is a suggestion I can change: anything I would have to undo does not go in 'Fine to share'. Anything I don't know goes in 'Decide later' with the question I need to answer. Label the sheet a proposal for me to edit.",
+      "check": "Every account and type of information you listed appears in the sheet exactly once, and nothing you said you would have to undo sits under 'Fine to share'. Items you were unsure about appear under 'Decide later' with a question, not a placement. If an item is missing, doubled, or placed against your answer, paste it with your answer and ask it to place it once and say why.",
+      "sources": [
+        {
+          "block": "B0232",
+          "quote": "As a leader in your business, if your team is using these different tools, you guys have to have rules."
+        },
+        {
+          "block": "B0246",
+          "quote": "if you're okay with it 100% going and making changes to whatever you give it access to, give it access, if you're not, don't."
+        },
+        {
+          "block": "B0247",
+          "quote": "if it's something that you would have to undo, don't let it have access."
+        },
+        {
+          "block": "B0207",
+          "quote": "It created a group message on my Slack and sent everyone who was on that calendar invitation a note about potentially changing that invitation."
+        }
+      ]
+    },
+    {
+      "candidate": "C2",
+      "name": "A plan before files move",
+      "promise": "A written plan for tidying your file storage or inbox that you approve before anything is moved.",
+      "tldr": "Paste the names of your current folders or email labels and a few lines on how you look for things. You get a proposed structure, a table placing every existing folder once, open questions, and a small first batch to check, with nothing moved.",
+      "why_it_matters": "Asking an AI to organize your files directly invites it to guess what you want and act on the guess. One owner spent months on it: the tool scrambled her Drive, then reported it could not move things. The fix is to separate thinking from doing: ask for a plan, edit it until it matches how your team works, and only then let anything move. A big cleanup is exactly where that pause pays off.",
+      "before_you_start": [
+        "The names of your top-level folders (or your email labels), copied from your account.",
+        "A few sentences on who uses these files and what you look for most often.",
+        "Optional: anything that must stay exactly where it is."
+      ],
+      "prompt": "I want to reorganize my files, but nothing should move yet. Pasted below are the names of my current folders (or email labels) and notes on how my team looks for things. If the names are not pasted, ask me for them first. Do not move, rename, delete, or change anything; produce only a plan.\n\nFirst, ask me in one short list anything you still need: who uses these files, what I look for most often, and anything that must stay where it is. Wait for my answers.\n\nThen write a plan under one page with four parts: (1) a proposed folder structure with a one-line purpose per folder, presented as a suggestion I can change; (2) a table listing every current folder exactly once with where it would go, as 'keep', 'move to ...', or 'merge into ...', with a one-line reason; (3) anything you are unsure about, as questions for me rather than guesses; (4) the order of steps, starting with a small first batch I can check before the rest. Do not propose deleting anything. If a folder seems unneeded, list it under 'For me to decide' with what it seems to be for and what might depend on it.",
+      "check": "Every folder name you pasted appears in the table exactly once as keep, move, or merge. Nothing is marked for deletion; anything questionable sits under 'For me to decide' with its purpose noted. The step order starts with a small batch. If a folder is missing or appears twice, paste its name and ask it to add it to the table once with a reason.",
+      "sources": [
+        {
+          "block": "B0464",
+          "quote": "literally ask it to create a plan before you actually go and do work."
+        },
+        {
+          "block": "B0464",
+          "quote": "You edit the plan and then you execute the plan. Right now it's assuming what is best and then trying to go and get it done for you"
+        },
+        {
+          "block": "B0463",
+          "quote": "I gave that to Clog and it Claude and it like screwed everything up and then now it's telling me it doesn't have the permissions to move things around"
+        },
+        {
+          "block": "B0469",
+          "quote": "This would be a big job. That's why I want you to be in plan mode first."
+        }
+      ]
+    },
+    {
+      "candidate": "C3",
+      "name": "Make your proposal sound like you",
+      "promise": "The passages in your proposal that read as machine-written, each rewritten in your voice, facts unchanged.",
+      "tldr": "Paste your proposal, and if you have one, a sample of your own writing. You get each passage that reads as machine-written, why it does, and a rewrite that keeps every price, date, and commitment as written.",
+      "why_it_matters": "A coach had a client ready to sign, sent a proposal she had drafted with AI, and the client balked because it seemed AI-written, though the content was hers. The advice: have the AI read your document as someone who spots machine-written patterns and point to exactly where they show, so you fix those lines yourself. No rewrite can promise how a reader will react; you get the lines to make your own before sending.",
+      "before_you_start": [
+        "Your proposal as text you can paste.",
+        "Optional: a sample of something you wrote yourself, such as an email or a web page, so the rewrites match your voice.",
+        "Optional: any feedback the client gave you."
+      ],
+      "prompt": "Below is a proposal I plan to send to a client, and, if I included one, a sample of my own writing. If the proposal is not pasted, ask me for it first.\n\nRead the proposal as an editor who knows the patterns that make text read as machine-written. List every passage that shows such a pattern. For each: quote it exactly as it appears, say in one line why it reads that way, and give a rewrite in my voice, matching my sample if I gave one. Keep every fact, price, date, name, and commitment exactly as written; change wording only, and add no new claims or promises. Do not give a score, rating, or verdict on whether the document passes as human-written; I only want the passages and the rewrites.\n\nEnd with up to three questions where a specific detail from my own experience with this client would make a passage more personal, so I can fill them in myself. Keep the whole reply under 600 words.",
+      "check": "Every quoted passage appears word for word in your proposal, and each rewrite keeps the same prices, dates, names, and deliverables. There is no score or pass/fail verdict, only passages and rewrites. If a rewrite changes a fact or a quoted passage is not in your document, paste that passage and ask it to redo only that one with the facts unchanged.",
+      "sources": [
+        {
+          "block": "B0369",
+          "quote": "they did not like the fact that the proposal was AI made."
+        },
+        {
+          "block": "B0371",
+          "quote": "he said that it seemed AI written"
+        },
+        {
+          "block": "B0385",
+          "quote": "where in this document would that person identify that this was written with AI"
+        },
+        {
+          "block": "B0377",
+          "quote": "And even if you run through all of those, anyone can say"
+        }
+      ]
+    }
+  ],
+  "through_line": "Each of these puts your decision in front of the AI's action: rules before your team connects anything, a plan before a single file moves, and your own voice before a proposal goes out. The tools are fast and eager; these three habits keep you the one who decides.",
+  "review": {
+    "rounds": 2,
+    "checks": {
+      "article": {
+        "title": "pass",
+        "through_line": "pass",
+        "tone": "pass",
+        "class_recap": "pass",
+        "notes_agreement": "pass"
+      },
+      "1": {
+        "claims": "pass",
+        "scope": "fixed",
+        "caveat_coverage": "pass",
+        "unresolved_info": "pass",
+        "retire_by_use": "n/a",
+        "score_as_proof": "n/a",
+        "intake": "pass",
+        "internal_resource": "pass",
+        "naming": "n/a",
+        "dry_run": "pass",
+        "concise": "pass",
+        "check_alignment": "pass"
+      },
+      "2": {
+        "claims": "pass",
+        "scope": "pass",
+        "caveat_coverage": "pass",
+        "unresolved_info": "pass",
+        "retire_by_use": "pass",
+        "score_as_proof": "n/a",
+        "intake": "pass",
+        "internal_resource": "pass",
+        "naming": "fixed",
+        "dry_run": "pass",
+        "concise": "pass",
+        "check_alignment": "fixed"
+      },
+      "3": {
+        "claims": "fixed",
+        "scope": "pass",
+        "caveat_coverage": "pass",
+        "unresolved_info": "pass",
+        "retire_by_use": "n/a",
+        "score_as_proof": "pass",
+        "intake": "pass",
+        "internal_resource": "pass",
+        "naming": "n/a",
+        "dry_run": "pass",
+        "concise": "pass",
+        "check_alignment": "pass"
+      }
+    },
+    "findings": [
+      {
+        "id": "F1",
+        "play": 1,
+        "rule": "scope",
+        "location": "prompt",
+        "text": "Anything I would have to undo must be kept out of AI tools.",
+        "evidence": "B0246–B0247: the test is one team member's framework ('the framework I put together'), not a universal rule; the guide says a policy or opinion may not become a requirement in the prompt.",
+        "correction": "Rewritten so the prompt applies it only as the draft's sorting rule and says it is a suggestion she can change: 'Apply this sorting rule and tell me it is a suggestion I can change: anything I would have to undo does not go in Fine to share.' The reader text presents it as 'a simple test came out of that'.",
+        "status": "fixed",
+        "blocking": false
+      },
+      {
+        "id": "F2",
+        "play": 2,
+        "rule": "check_alignment",
+        "location": "prompt",
+        "text": "a table listing every current folder with where it would go",
+        "evidence": "The check expects each pasted folder exactly once, but the draft prompt did not settle duplicates (guide: 'Duplication').",
+        "correction": "Prompt now says 'a table listing every current folder exactly once'; the check tests exactly that and recovers by asking for the missing folder to be added once.",
+        "status": "fixed",
+        "blocking": false
+      },
+      {
+        "id": "F3",
+        "play": 3,
+        "rule": "claims",
+        "location": "prompt",
+        "text": "generic openings, stacked adjectives, lists of three, vague claims, phrases nobody says aloud",
+        "evidence": "No block in the transcript names these patterns; the host only said to read as someone who 'deeply understands AI linguistic patterns' (B0385). The list was our enrichment.",
+        "correction": "Removed the list; the prompt now says 'an editor who knows the patterns that make text read as machine-written' and leaves the patterns to the AI.",
+        "status": "fixed",
+        "blocking": false
+      },
+      {
+        "id": "F4",
+        "play": 2,
+        "rule": "naming",
+        "location": "why_it_matters",
+        "text": "In the session a member asked why Claude kept failing to organize her Drive",
+        "evidence": "Guide: name a product only if the win depends on it, and no session recap; the play works with any AI assistant, and the draft both named the product and referred to the session.",
+        "correction": "Rewritten as 'One owner spent months on it: the tool scrambled her Drive, then reported it could not move things', with no session reference or product name.",
+        "status": "fixed",
+        "blocking": false
+      },
+      {
+        "id": "F5",
+        "play": 3,
+        "rule": "claims",
+        "location": "why_it_matters",
+        "text": "lost the deal because the reader felt it seemed AI-written",
+        "evidence": "B0369–B0371 say the client 'did not like the fact that the proposal was AI made' and that it 'seemed AI written'; the transcript does not state the contract was lost.",
+        "correction": "Now reads 'the client balked because it seemed AI-written'; the candidate's owner_problem was aligned to the same wording.",
+        "status": "fixed",
+        "blocking": false
+      }
+    ],
+    "dry_runs": [
+      {
+        "play": 1,
+        "kind": "reasoned-walkthrough",
+        "input": "Fictional: 'Harbor & Pine', an invented interior-design studio of four. Pasted list: shared email, calendar, Slack, an accounting app, a client-files drive, a social scheduler; AI tools: a chat assistant and a meeting note-taker. Owner answers: would have to undo mistakes in accounting and client files; fine with changes to the social scheduler drafts; unsure about the note-taker's recordings.",
+        "expected": [
+          "Questions come first and cover each listed account before any rule sheet appears.",
+          "The sheet places all six accounts and two AI tools exactly once; accounting and client files are not under 'Fine to share'; the note-taker recordings sit under 'Decide later' with a question.",
+          "The sorting rule is labeled a suggestion. If the sheet placed accounting under 'Fine to share', the check's 'nothing you said you would have to undo sits under Fine to share' would catch it."
+        ],
+        "result": "pass",
+        "notes": "Nothing in the prompt turns an unknown into a rule; unknowns are routed to 'Decide later'."
+      },
+      {
+        "play": 2,
+        "kind": "reasoned-walkthrough",
+        "input": "Fictional: 'Bramblewood Events', an invented events planner with twelve pasted Drive folder names including 'Misc', 'Misc 2', 'Vendors', 'Vendors OLD', 'Contracts', and 'Photos'. Notes: two staff need to find vendor contracts fast.",
+        "expected": [
+          "Questions come before the plan; the plan is under a page with four parts.",
+          "All twelve folders appear once in the table with keep/move/merge; 'Misc 2' and 'Vendors OLD' are not marked delete but appear under 'For me to decide' with a note on what they seem to hold and what may depend on them.",
+          "Step order names a small first batch. If the table dropped 'Photos' or listed 'Vendors' twice, the check's 'exactly once' test would catch it; if it proposed deleting 'Vendors OLD', the 'nothing is marked for deletion' test would catch it."
+        ],
+        "result": "pass",
+        "notes": "Removal stays behind the owner's decision; low use alone never produces a delete."
+      },
+      {
+        "play": 3,
+        "kind": "reasoned-walkthrough",
+        "input": "Fictional: a two-page coaching proposal for an invented client 'Meridian Labs' with a fee of 4,800, a start date of 3 November, and six workshop sessions; plus a short sample of the owner's own emails.",
+        "expected": [
+          "Every listed passage is quoted verbatim from the proposal with a one-line reason and a rewrite; the rewrites keep 4,800, 3 November, and six sessions unchanged.",
+          "No score or verdict appears; up to three questions close the reply, under 600 words.",
+          "If a rewrite changed the fee to 5,000 or invented a guarantee, the check's 'each rewrite keeps the same prices, dates, names, and deliverables' would catch it."
+        ],
+        "result": "pass",
+        "notes": "The promise stays at 'passages and rewrites', not a guarantee about the reader, matching the caveat."
+      }
+    ]
+  }
+}

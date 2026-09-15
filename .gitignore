@@ -1,0 +1,7 @@
+# Skill output from local runs; the submitted sample lives in sample/
+power-play-output/
+
+# Local noise
+__pycache__/
+*.log
+.DS_Store

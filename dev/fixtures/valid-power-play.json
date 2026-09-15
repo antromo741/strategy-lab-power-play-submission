@@ -1,0 +1,138 @@
+{
+  "status": "complete",
+  "title": "Fewer questions land on you",
+  "coverage": [
+    { "part": 1, "summary": "Housekeeping, three short ideas (meeting notes to action list, outcome-based job post, invoice vs quote check), one removed segment, removed off-topic chat, sign-off." }
+  ],
+  "normalizations": [],
+  "candidates": [
+    {
+      "id": "C1",
+      "title": "Meeting notes to an action list",
+      "owner_problem": "The team keeps asking the owner what they are supposed to do after meetings.",
+      "inputs": "Notes from a recent team meeting.",
+      "outcome": "A list of decisions, owners, and due dates to send to the team.",
+      "evidence": "demonstrated",
+      "blocks": ["B0004", "B0005"],
+      "prerequisites": "Any AI chat assistant.",
+      "caveats": "One speaker's result.",
+      "decision": "selected",
+      "reason": "Real owner bottleneck, inputs she already has, result was used with the team."
+    },
+    {
+      "id": "C2",
+      "title": "Job post built around outcomes",
+      "owner_problem": "Hiring posts list duties instead of what the role must deliver.",
+      "inputs": "The three results the role must deliver early on.",
+      "outcome": "A draft job post framed around outcomes.",
+      "evidence": "explained",
+      "blocks": ["B0007"],
+      "prerequisites": "Any AI chat assistant.",
+      "caveats": "Explained, not demonstrated. No evidence about how candidates respond.",
+      "decision": "selected",
+      "reason": "Clear method, easy inputs, distinct from the other two."
+    },
+    {
+      "id": "C3",
+      "title": "Invoice against quote check",
+      "owner_problem": "Suppliers bill for things that were never agreed.",
+      "inputs": "Invoice text and the original quote.",
+      "outcome": "A list of lines where the invoice and quote differ.",
+      "evidence": "demonstrated",
+      "blocks": ["B0008", "B0009"],
+      "prerequisites": "Any AI chat assistant.",
+      "caveats": "One speaker's result; the list still needs checking by hand.",
+      "decision": "selected",
+      "reason": "Concrete, checkable result that caught a real overcharge."
+    }
+  ],
+  "plays": [
+    {
+      "candidate": "C1",
+      "name": "Meeting Notes to Action List",
+      "promise": "Turn messy meeting notes into who does what, by when.",
+      "tldr": "Paste your latest meeting notes and ask for decisions, owners, and due dates. Send the list so fewer follow-up questions land on you.",
+      "why_it_matters": "When you are the only one who remembers what was decided, follow-up questions land on you.",
+      "before_you_start": ["Copy the notes from your most recent team meeting."],
+      "prompt": "I'm pasting notes from a team meeting below. Turn them into a table with three columns: decision or task, owner, due date. If an owner or date is missing, write \"not stated\" instead of guessing. After the table, list any open questions nobody answered.",
+      "check": "Every task you remember from the meeting appears in the table, and nothing is in it that nobody agreed to. If something is missing, paste that part of the notes again and ask it to add it.",
+      "sources": [
+        { "block": "B0004", "quote": "paste them in, and ask for a list of decisions, owners, and due dates" },
+        { "block": "B0005", "quote": "nobody had to ask me what they were supposed to do" }
+      ]
+    },
+    {
+      "candidate": "C2",
+      "name": "Outcome-Based Job Post",
+      "promise": "Draft a job post built around the results the role must deliver.",
+      "tldr": "Tell the AI what the role must achieve early on. It drafts the post around those outcomes instead of a list of duties.",
+      "why_it_matters": "A list of duties says little about what success looks like; a post built around results tells candidates what you actually need.",
+      "before_you_start": ["Decide the three results this person must deliver in their first months.", "Optional: your current job post, if you have one."],
+      "prompt": "Help me write a job post. In one message, ask me for anything below that I haven't already given you: the role title, the three results this person must deliver in their first ninety days, and how they will work with me. If I paste a current job post, use it; if not, start fresh. Then write the post around those results, not a list of duties. Keep it under one page.",
+      "check": "Each of your three results appears in the post in plain words, and the post never reads like a generic list of duties. If it does, point to the line and ask it to rewrite that section around the result.",
+      "sources": [
+        { "block": "B0007", "quote": "ask it to draft the job post around those outcomes instead of a list of duties" }
+      ]
+    },
+    {
+      "candidate": "C3",
+      "name": "Invoice vs Quote Check",
+      "promise": "List every line where an invoice and its quote don't match, before you pay.",
+      "tldr": "Paste a supplier invoice next to the original quote. Get a list of every line that does not match.",
+      "why_it_matters": "Checking invoices line by line is tedious, so it gets skipped, and small overcharges slip through.",
+      "before_you_start": ["Have the invoice text and the original quote ready to paste."],
+      "prompt": "I'm pasting a supplier's original quote, then their invoice. Compare them line by line. List every item where the price, quantity, or description differs, and every charge on the invoice that is not in the quote. Show each difference as: item, quoted, invoiced. Do not assume anything was agreed later.",
+      "check": "Pick two differences it lists and confirm them yourself against both documents. If it flagged something that actually matches, tell it and ask it to recheck the whole list.",
+      "sources": [
+        { "block": "B0008", "quote": "paste the invoice text and your original quote side by side" },
+        { "block": "B0009", "quote": "it caught a delivery charge we never agreed to" }
+      ]
+    }
+  ],
+  "through_line": "Each win starts with something you already have: notes, a hiring need, an invoice. Each one takes a decision or a check that normally waits for you and hands back something your team can act on.",
+  "review": {
+    "rounds": 2,
+    "checks": {
+      "article": { "title": "fixed", "through_line": "pass", "tone": "pass", "class_recap": "pass", "notes_agreement": "pass" },
+      "1": { "claims": "fixed", "scope": "pass", "caveat_coverage": "pass", "unresolved_info": "n/a", "retire_by_use": "n/a", "score_as_proof": "n/a", "intake": "pass", "internal_resource": "pass", "naming": "n/a", "dry_run": "pass", "concise": "pass", "check_alignment": "pass" },
+      "2": { "claims": "pass", "scope": "pass", "caveat_coverage": "pass", "unresolved_info": "n/a", "retire_by_use": "n/a", "score_as_proof": "n/a", "intake": "pass", "internal_resource": "pass", "naming": "n/a", "dry_run": "pass", "concise": "pass", "check_alignment": "pass" },
+      "3": { "claims": "pass", "scope": "pass", "caveat_coverage": "pass", "unresolved_info": "n/a", "retire_by_use": "n/a", "score_as_proof": "n/a", "intake": "pass", "internal_resource": "pass", "naming": "n/a", "dry_run": "pass", "concise": "pass", "check_alignment": "pass" }
+    },
+    "findings": [
+      {
+        "id": "F1", "play": 1, "rule": "claims", "location": "tldr",
+        "text": "Send the list so nobody has to ask you.",
+        "evidence": "B0005 is one speaker's result; 'nobody' promises an outcome the session cannot guarantee.",
+        "correction": "Changed to 'so fewer follow-up questions land on you'.",
+        "status": "fixed"
+      },
+      {
+        "id": "F2", "play": 0, "rule": "title", "location": "title",
+        "text": "Your notes. Your hiring. Your invoices.",
+        "evidence": "Lists inputs rather than the outcome the reader gets.",
+        "correction": "Changed to 'Fewer questions land on you'.",
+        "status": "fixed"
+      }
+    ],
+    "dry_runs": [
+      {
+        "play": 1, "kind": "reasoned-walkthrough",
+        "input": "Fictional notes from an invented bakery's Monday meeting: five decisions, two without an owner, one without a date.",
+        "expected": ["A table with five rows and the three requested columns.", "The two missing owners and one missing date show 'not stated', not a guess.", "The check (compare against her memory of the meeting) would catch a missing or invented task."],
+        "result": "pass", "notes": ""
+      },
+      {
+        "play": 2, "kind": "reasoned-walkthrough",
+        "input": "An invented role (office manager for a fictional plumbing company) with three made-up first-90-day results and no existing post.",
+        "expected": ["One message asking only for the title, results, and working arrangement if not already given.", "A post under one page with each of the three results stated plainly.", "The check would catch a duties-only post because the results would be absent."],
+        "result": "pass", "notes": ""
+      },
+      {
+        "play": 3, "kind": "reasoned-walkthrough",
+        "input": "A fictional quote and invoice for an invented catering supplier, with one price change and one added delivery fee.",
+        "expected": ["Two differences listed as item, quoted, invoiced.", "The added fee appears as 'not in the quote'.", "The check (confirm two differences by hand) would catch a false flag."],
+        "result": "pass", "notes": ""
+      }
+    ]
+  }
+}
