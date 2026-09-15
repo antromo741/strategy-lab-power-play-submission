@@ -1,49 +1,71 @@
-# strategy-lab-power-play
+# Strategy Lab → Power Play
 
-A Claude Code skill that turns a Strategy Lab transcript into a written Power Play: three source-backed quick wins for a non-technical founder, each with a promise, a two-sentence TL;DR, why it matters, a copy-paste prompt, and a way to tell it worked, plus a through-line. The skill reviews and repairs its own draft and ships editorial notes that record what it checked, what it changed, and any genuinely unresolved issue.
+Turn a Strategy Lab transcript into three practical quick wins for a busy founder. This reusable Claude skill selects the ideas, writes the Power Play, and reviews and repairs its draft before returning it.
 
-Submission for The Uncommon Business, Curriculum Producer (Technical): "Ship the Skill, Not the Output."
+Built by **Anthony Romagnolo** for The Uncommon Business’s **Curriculum Producer (Technical)** challenge, *Ship the Skill, Not the Output*.
 
-## What is here
+## Start here
 
-| Path | What it is |
-| --- | --- |
-| `.claude/skills/strategy-lab-power-play/` | **The working skill.** `SKILL.md` (workflow), `references/editorial-guide.md` (the judgment rules), `scripts/power_play.mjs` (Node.js helper: transcript indexing, validation, rendering, article/notes agreement check). No dependencies, no API keys. |
-| `dist/strategy-lab-power-play.zip` | The same skill folder zipped for upload to the Claude desktop app or Cowork. Byte-identical to the folder above. `dist/cowork-instructions.md` says how. |
-| `sample/power-play.md` | **The Power Play the skill produced** on the supplied transcript, unpolished, exactly as emitted. |
-| `sample/editorial-notes.md` | Its supporting notes: checks performed, repairs made, why each win was chosen and others rejected, sources by block and line, how removed segments and misspelled product names were handled. |
-| `sample/power-play.json` | The structured draft both files were rendered from, kept so the sample can be audited. |
-| `dev/` | Smoke tests (`node dev/check.mjs`), a frontmatter validator, synthetic fixtures, and a before/after behavioral check. Not needed to run the skill. |
-| `NOTE.md` | The short note (Step 4). |
+- **[Read the Power Play](sample/power-play.md)** — the generated sample, unchanged.
+- **[Read the submission note](NOTE.md)** — my choices, AI use, and where I kept human judgment.
+- **[Download the skill](dist/strategy-lab-power-play.zip)** — the installable package.
 
-The supplied transcript, brief, and example Power Play are not included.
+## Use it in Claude Desktop with Cowork
 
-## Run it
+**Install once, then attach a transcript and send one request.** You do not need to clone this repository, connect a folder, or edit code for this workflow.
 
-**Claude Code** (verified): start Claude Code in this folder with Node.js on your PATH, then
+1. Download **[strategy-lab-power-play.zip](dist/strategy-lab-power-play.zip)**. This is the skill package to upload; GitHub’s general “Download ZIP” contains the entire repository.
+2. In Claude, open **Customize → Skills → + → Create skill → Upload a skill**. Upload the package and enable it. Skills and code execution must be enabled for your account; see [Anthropic’s setup instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
+3. Start a **new Cowork task** and attach your transcript as a `.md` or `.txt` file. Enabled skills load when the session starts, as described in [Anthropic’s Cowork skill documentation](https://code.claude.com/docs/en/skills#use-skills-in-cowork-and-cloud-sessions).
+4. Send:
 
+```text
+Use the strategy-lab-power-play skill on the attached transcript.
 ```
+
+Claude returns **`power-play.md`** as the main deliverable, with **`editorial-notes.md`** as optional supporting information. The skill checks its runtime prerequisites before processing the transcript.
+
+## What the Power Play includes
+
+Each of the three wins has:
+
+- A name and one-line promise
+- A TL;DR of no more than two sentences
+- Why it matters to a business owner
+- A copy-paste prompt
+- A concrete way to tell whether it worked
+
+A short closing connects the three wins. If fewer than three ideas qualify, the output is marked incomplete; if none qualify, the skill returns an insufficiency report. It does not invent extra plays to fill the format.
+
+## Use it in Claude Code
+
+Open this repository in Claude Code with **Node.js available on your PATH**, then run:
+
+```text
 /strategy-lab-power-play path/to/transcript.md
 ```
 
-Headless: `claude -p "/strategy-lab-power-play path/to/transcript.md" --permission-mode acceptEdits`
+The helper uses Node’s built-in modules, so no additional npm packages or separate API key are needed. Claude access and a working Node runtime are required. Outputs are saved under `power-play-output/` in a separate run folder.
 
-**Claude desktop app / Cowork:** upload `dist/strategy-lab-power-play.zip` under Customize → Skills, start a new task, attach the transcript, and ask for a Power Play. See `dist/cowork-instructions.md`.
+## How it works
 
-Output lands in `power-play-output/<transcript-name>-<timestamp>/` (Claude Code) or the task's output location (Cowork): `power-play.md` first, `editorial-notes.md` beside it. If a session has fewer than three supportable wins the draft is marked incomplete; if none, you get `insufficient-material.md` instead. The skill never pads.
+Claude interprets the session, selects the wins, writes, and performs an editorial review. The Node helper gives transcript passages unique IDs, checks quoted evidence and required fields, validates the review record, and renders the files. This preserves source references even when timestamps repeat or sections have been removed.
 
-## How the sample was produced
+The **[complete skill source](.claude/skills/strategy-lab-power-play/)** contains `SKILL.md`, the editorial guide, and the helper script. Code checks structure and consistency; it cannot prove that every editorial judgment is correct.
 
-One run in Cowork with the transcript attached to a fresh task (no folder connected), using the ZIP in `dist/`. The notes record the environment's upload path for the transcript, the transcript's SHA-256, status `complete`, two review rounds, five repairs, and no unresolved issues. Nothing in `sample/` was edited afterwards; re-rendering `sample/power-play.json` with the helper reproduces `power-play.md` byte for byte.
+## About the sample
 
-## What was verified
+The sample, **[Keep the Final Say Over Your AI](sample/power-play.md)**, was generated in Cowork with the supplied transcript attached and no connected folder, using Fable. It is presented without hand-editing. The **[optional editorial notes](sample/editorial-notes.md)** record the source coverage, selection decisions, and five repairs across two review rounds.
 
-- `node dev/check.mjs`: 36 structural checks (indexing edge cases, validation rules, review-record consistency, dry-run labeling, rendering, article/notes agreement, incomplete and insufficient paths).
-- Headless Claude Code cold runs in clean folders on synthetic sessions: a one-win session yields an honest incomplete draft; a defect-seeded session had every seeded defect (a delete-by-age rule, a detector score as proof, a "guaranteed" saving, an internal template, a class recap, a misspelled product) kept out of the article and recorded as repairs (`dev/behavioral/results.md`).
-- One Cowork run on the real transcript: the sample above.
+<details>
+<summary>Development checks and tested environments</summary>
 
-Not verified: repeated runs for consistency; other Node versions; macOS/Windows.
+- **36 structural checks** cover indexing, validation, review records, rendering, and incomplete or insufficient results: `node dev/check.mjs`.
+- **Development tests** used synthetic sessions to check weak-source handling and common editorial defects; details are in [the behavioral test results](dev/behavioral/results.md).
+- **Tested environments:** Claude Code in WSL Ubuntu with Node.js 24.18.0, and the attached-transcript Cowork workflow above. Repeated-run consistency, other Node versions, and native macOS/Windows command-line execution have not been established.
 
-## Design in one paragraph
+The development frontmatter validator uses Python and PyYAML; these are not runtime dependencies of the installed skill.
 
-Claude does the judgment (what counts as a teaching moment, evidence grading, selection, writing, and an editor's review of its own text). Code does what code is good at: splitting a messy auto-transcript into citable blocks that survive repeated timestamps and redacted gaps, refusing quotes that are not in the cited block, refusing a review record whose marks and findings disagree, and checking that the rendered article and notes tell the same story. Anything the skill cannot settle from the transcript is disclosed as a specific unresolved issue rather than turned into a checklist for the operator.
+</details>
+
+The employer’s transcript, brief, and published example are not included in this repository.
