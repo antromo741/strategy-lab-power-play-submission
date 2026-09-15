@@ -7,7 +7,7 @@ description: >-
   Use when a teammate gives you a class or session transcript file and asks for a
   Power Play, quick wins, or a reusable write-up.
 allowed-tools: Read Write Edit Glob Bash(node *)
-compatibility: Requires Node.js available in the runtime (tested with v24). Built and verified in Claude Code; the Claude app and Cowork are unverified.
+compatibility: Requires Node.js available in the runtime (tested with v24). Tested in Claude Code and in one Cowork run with an attached transcript.
 ---
 
 # Strategy Lab → Power Play
@@ -24,7 +24,7 @@ compatibility: Requires Node.js available in the runtime (tested with v24). Buil
 ```
 Headless alternative: `claude -p "/strategy-lab-power-play path/to/transcript.md" --permission-mode acceptEdits`
 
-Claude desktop app or Cowork (**not yet verified**): install the skill ZIP, start a new task, attach the transcript or connect the folder that holds it, and ask for a Power Play. With one transcript attached you don't need to type its name. See the separate Cowork instructions.
+Claude desktop app or Cowork: install the skill ZIP, start a new task, attach the transcript or connect the folder that holds it, and ask for a Power Play. With one transcript attached you don't need to type its name. See the separate Cowork instructions. Tested in Claude Code and in one Cowork run with an attached transcript.
 
 **You get** the Power Play, `power-play.md`, edited and checked, in a new folder `power-play-output/<transcript-name>-<YYYYMMDD-HHMMSS>/` (a new folder per run, nothing overwritten). Beside it, `editorial-notes.md` records what was checked, what was repaired, why each win was chosen, and any genuinely unresolved issue. If there are none, it says so. You are not asked to repeat routine checks or approve ordinary editorial choices. In Claude Code the folder sits in the current folder; in the Claude app or Cowork it goes to the task's output location and the two files come back as downloads.
 
